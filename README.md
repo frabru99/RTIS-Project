@@ -1,2 +1,2 @@
 # RTIS-Project
-Analysis of Ai Workloads on Nvidia Jetson Nano
+## Analysis of AI Workloads on Nvidia Jetson Nano
