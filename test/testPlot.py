@@ -22,7 +22,6 @@ for file in os.listdir("golden_run/"):
             inception_v4_no_stress= []
             for y in opened.readlines():
                 inception_v4_no_stress.append(float(y.strip())*1000)
-            print(inception_v4_no_stress)
         elif str(file).startswith("inception-v1"):
             pass
         elif str(file).startswith("ssd-mobilenet-v1"):
@@ -49,7 +48,6 @@ for file in os.listdir("cpu_run/"):
             inception_v4_cpu= []
             for y in opened.readlines():
                 inception_v4_cpu.append(float(y.strip())*1000)
-            print(inception_v4_no_stress)
         elif str(file).startswith("inception-v1"):
             pass
         elif str(file).startswith("ssd-mobilenet-v1"):
@@ -66,6 +64,31 @@ for file in os.listdir("cpu_run/"):
             pass
 
 
+#VM RUN
+for file in os.listdir("vm_run/"):
+    path_file = "vm_run/"+file
+
+
+    with open(path_file, "r") as opened:
+        if str(file).startswith("inception-v4"):
+            inception_v4_vm= []
+            for y in opened.readlines():
+                inception_v4_vm.append(float(y.strip())*1000)
+        elif str(file).startswith("inception-v1"):
+            pass
+        elif str(file).startswith("ssd-mobilenet-v1"):
+            ssd_mobilenet_v1_vm= []
+            for y in opened.readlines():
+                ssd_mobilenet_v1_vm.append(float(y.strip())*1000)
+        elif str(file).startswith("ssd-mobilenet-v2"):
+            ssd_mobilenet_v2_vm= []
+            for y in opened.readlines():
+                ssd_mobilenet_v2_vm.append(float(y.strip())*1000)
+        elif str(file).startswith("mobilenet-v1"):
+            pass
+        elif str(file).startswith("mobilenet-v2"):
+            pass
+
 
 inception_v1_no_stress = []
 inception_v1_cpu = []
@@ -77,7 +100,6 @@ inception_v1_fork = [ ]
 inception_v1_udp = [ ]
 
 
-inception_v4_vm = [ ]# High values as seen in image
 inception_v4_memcpy = [ ]
 inception_v4_interrupt = [ ]
 inception_v4_open = [ ]
@@ -104,14 +126,12 @@ mobilenet_v2_fork = [ ]
 mobilenet_v2_udp = [ ]
 
 
-ssd_mobilenet_v1_vm = [ ]
 ssd_mobilenet_v1_memcpy = [ ]
 ssd_mobilenet_v1_interrupt = [ ]
 ssd_mobilenet_v1_open = [ ]
 ssd_mobilenet_v1_fork = [ ]
 ssd_mobilenet_v1_udp = [ ]
 
-ssd_mobilenet_v2_vm = [ ]
 ssd_mobilenet_v2_memcpy = [ ]
 ssd_mobilenet_v2_interrupt = [ ]
 ssd_mobilenet_v2_open = [ ]
@@ -203,7 +223,7 @@ axes[0].set_yscale('log') # Set y-axis to logarithmic scale as in the image
 axes[0].set_ylabel('Inference time (ms)')
 axes[0].set_xlabel('') # Remove x-label for the top plot
 axes[0].tick_params(axis='x', rotation=45)
-axes[0].grid(axis='y', linestyle='--', alpha=0.7)
+axes[0].grid(axis='y', linestyle='--', alpha=0.5)
 axes[0].legend(title='Model')
 
 
@@ -216,7 +236,7 @@ axes[1].set_yscale('log') # Set y-axis to logarithmic scale
 axes[1].set_ylabel('Inference time (ms)')
 axes[1].set_xlabel('') # Remove x-label, as it will be rotated
 axes[1].tick_params(axis='x', rotation=45)
-axes[1].grid(axis='y', linestyle='--', alpha=0.7)
+axes[1].grid(axis='y', linestyle='--', alpha=0.5)
 axes[1].legend(title='Model')
 
 
