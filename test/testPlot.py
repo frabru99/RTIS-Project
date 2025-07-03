@@ -90,6 +90,56 @@ for file in os.listdir("vm_run/"):
             pass
 
 
+#MEMCPY RUN
+for file in os.listdir("memcpy_run/"):
+    path_file = "memcpy_run/"+file
+
+
+    with open(path_file, "r") as opened:
+        if str(file).startswith("inception-v4"):
+            inception_v4_memcpy= []
+            for y in opened.readlines():
+                inception_v4_memcpy.append(float(y.strip())*1000)
+        elif str(file).startswith("inception-v1"):
+            pass
+        elif str(file).startswith("ssd-mobilenet-v1"):
+            ssd_mobilenet_v1_memcpy= []
+            for y in opened.readlines():
+                ssd_mobilenet_v1_memcpy.append(float(y.strip())*1000)
+        elif str(file).startswith("ssd-mobilenet-v2"):
+            ssd_mobilenet_v2_memcpy= []
+            for y in opened.readlines():
+                ssd_mobilenet_v2_memcpy.append(float(y.strip())*1000)
+        elif str(file).startswith("mobilenet-v1"):
+            pass
+        elif str(file).startswith("mobilenet-v2"):
+            pass
+
+#INTERRUPT RUN
+for file in os.listdir("interrupt_run/"):
+    path_file = "interrupt_run/"+file
+
+
+    with open(path_file, "r") as opened:
+        if str(file).startswith("inception-v4"):
+            inception_v4_interrupt= []
+            for y in opened.readlines():
+                inception_v4_interrupt.append(float(y.strip())*1000)
+        elif str(file).startswith("inception-v1"):
+            pass
+        elif str(file).startswith("ssd-mobilenet-v1"):
+            ssd_mobilenet_v1_interrupt= []
+            for y in opened.readlines():
+                ssd_mobilenet_v1_interrupt.append(float(y.strip())*1000)
+        elif str(file).startswith("ssd-mobilenet-v2"):
+            ssd_mobilenet_v2_interrupt= []
+            for y in opened.readlines():
+                ssd_mobilenet_v2_interrupt.append(float(y.strip())*1000)
+        elif str(file).startswith("mobilenet-v1"):
+            pass
+        elif str(file).startswith("mobilenet-v2"):
+            pass
+
 inception_v1_no_stress = []
 inception_v1_cpu = []
 inception_v1_vm = [ ]
@@ -100,8 +150,6 @@ inception_v1_fork = [ ]
 inception_v1_udp = [ ]
 
 
-inception_v4_memcpy = [ ]
-inception_v4_interrupt = [ ]
 inception_v4_open = [ ]
 inception_v4_fork = [ ]
 inception_v4_udp = [ ]
@@ -126,14 +174,10 @@ mobilenet_v2_fork = [ ]
 mobilenet_v2_udp = [ ]
 
 
-ssd_mobilenet_v1_memcpy = [ ]
-ssd_mobilenet_v1_interrupt = [ ]
 ssd_mobilenet_v1_open = [ ]
 ssd_mobilenet_v1_fork = [ ]
 ssd_mobilenet_v1_udp = [ ]
 
-ssd_mobilenet_v2_memcpy = [ ]
-ssd_mobilenet_v2_interrupt = [ ]
 ssd_mobilenet_v2_open = [ ]
 ssd_mobilenet_v2_fork = [ ]
 ssd_mobilenet_v2_udp = [ ]
