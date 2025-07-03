@@ -52,4 +52,3 @@ print("Average Time of test: ", avg_times)
 
 with open(args.network + "_result_" + args.testtype + ".txt", "a") as file:
      file.write(str(avg_times) + "\n")
-	
