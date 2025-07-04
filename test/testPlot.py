@@ -47,7 +47,9 @@ for file in os.listdir("cpu_run/"):
             for y in opened.readlines():
                 inception_v4_cpu.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_cpu= []
+            for y in opened.readlines():
+                inception_v1_cpu.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_cpu= []
             for y in opened.readlines():
@@ -188,7 +190,6 @@ for file in os.listdir("udp_run/"):
                 ssd_mobilenet_v2_udp.append(float(y.strip())*1000)
 
 
-inception_v1_cpu = []
 inception_v1_vm = [ ]
 inception_v1_memcpy = [ ]
 inception_v1_interrupt = [ ]
