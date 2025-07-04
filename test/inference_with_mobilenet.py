@@ -20,6 +20,7 @@ MODEL INIZIALIZATION
 
 #Check if the GPU is available
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
+
 print(device)
 
 preprocessor = AutoImageProcessor.from_pretrained("google/"+args.network+"_1.0_224")
