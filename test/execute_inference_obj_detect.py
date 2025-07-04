@@ -3,4 +3,4 @@ import time
 
 
 for i in range(30):
-	os.system("python3 inference_obj_detect.py ./photos/ goldenrun --network ssd-mobilenet-v2")
+	os.system("python3 inference_obj_detect.py ./photos/ udprun --network ssd-mobilenet-v2")
