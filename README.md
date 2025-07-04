@@ -43,7 +43,7 @@ The environment was set up by flashing the OS to an external SSD and installing 
 
 - **Inference Framework**: [`jetson-inference`](https://github.com/dusty-nv/jetson-inference)
 - **Stress Testing Tool**: [`stress-ng`](https://wiki.ubuntu.com/Kernel/Reference/stress-ng)
-- **Languages**: Python 3
+- **Languages**: Python (version 3.6)
 - **Libraries Used**: `jetson.inference`, `jetson.utils`
 
 Scripts were executed both in a clean "Golden Run" and under stress conditions.
@@ -84,11 +84,11 @@ Each script receives CLI arguments:
 ## Sample Command
 
 ```bash
-python3 classify_test.py ./images golden --network=googlenet
+python3 execute_inference_obj_detect.py
 ```
 
 ```bash
-python3 detect_test.py ./images cpu --network=ssd-mobilenet-v2
+python3 execute_inference_img_detect.py
 ```
 
 ---
@@ -101,7 +101,7 @@ The inference times were measured and logged for each model in each scenario. Re
 <network>_result_<testtype>.txt
 ```
 
-Each file contains 30 average inference times (one per run), suitable for statistical analysis (mean, variance, etc.).
+Each file contains 30 average inference times (one per run).
 
 ---
 
