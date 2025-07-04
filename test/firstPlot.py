@@ -71,7 +71,9 @@ for file in os.listdir("vm_run/"):
             for y in opened.readlines():
                 inception_v4_vm.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_vm= []
+            for y in opened.readlines():
+                inception_v1_vm.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_vm= []
             for y in opened.readlines():
@@ -93,7 +95,9 @@ for file in os.listdir("memcpy_run/"):
             for y in opened.readlines():
                 inception_v4_memcpy.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_memcpy= []
+            for y in opened.readlines():
+                inception_v1_memcpy.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_memcpy= []
             for y in opened.readlines():
@@ -114,7 +118,9 @@ for file in os.listdir("interrupt_run/"):
             for y in opened.readlines():
                 inception_v4_interrupt.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_interrupt= []
+            for y in opened.readlines():
+                inception_v1_interrupt.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_interrupt= []
             for y in opened.readlines():
@@ -135,7 +141,9 @@ for file in os.listdir("open_run/"):
             for y in opened.readlines():
                 inception_v4_open.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_open= []
+            for y in opened.readlines():
+                inception_v1_open.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_open= []
             for y in opened.readlines():
@@ -158,7 +166,9 @@ for file in os.listdir("fork_run/"):
             for y in opened.readlines():
                 inception_v4_fork.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_fork= []
+            for y in opened.readlines():
+                inception_v1_fork.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_fork= []
             for y in opened.readlines():
@@ -179,7 +189,9 @@ for file in os.listdir("udp_run/"):
             for y in opened.readlines():
                 inception_v4_udp.append(float(y.strip())*1000)
         elif str(file).startswith("inception-v1"):
-            pass
+            inception_v1_udp= []
+            for y in opened.readlines():
+                inception_v1_udp.append(float(y.strip())*1000)
         elif str(file).startswith("ssd-mobilenet-v1"):
             ssd_mobilenet_v1_udp= []
             for y in opened.readlines():
@@ -188,14 +200,6 @@ for file in os.listdir("udp_run/"):
             ssd_mobilenet_v2_udp= []
             for y in opened.readlines():
                 ssd_mobilenet_v2_udp.append(float(y.strip())*1000)
-
-
-inception_v1_vm = [ ]
-inception_v1_memcpy = [ ]
-inception_v1_interrupt = [ ]
-inception_v1_open = [ ]
-inception_v1_fork = [ ]
-inception_v1_udp = [ ]
 
 
 
@@ -263,26 +267,28 @@ fig, axes = plt.subplots(2, 1, figsize=(15, 12), sharex=True) # Two subplots, sh
 ax = sns.boxplot(ax=axes[0], x='Condition', y='Inference time (ms)', hue='Model', data=df_a,
             palette={'Inception v1': 'lightgreen', 'Inception v4': 'skyblue'})
 [ax.axvline(x+.5,color='k', alpha=0.5) for x in ax.get_xticks()]
-axes[0].set_title('(a) Inception v1, Inception v4, MobileNet v1 tests')
-axes[0].set_yscale('log') # Set y-axis to logarithmic scale as in the image
+axes[0].set_title('(a) Inception v1, Inception v4')
+axes[0].set_yticks(range(5)) # Set y-axis to logarithmic scale as in the image
 axes[0].set_ylabel('Inference time (ms)')
 axes[0].set_xlabel('') # Remove x-label for the top plot
 axes[0].tick_params(axis='x', rotation=45)
-axes[0].grid(axis='y', linestyle='--', alpha=0.5)
+axes[0].grid(axis='y', linestyle='--', alpha=0.7)
 axes[0].legend(title='Model')
-
-
+axes[0].set(ylim=(0, 180))
+axes[0].set_yticks([0, 50, 100, 150])
 # Plot (b)
 bx =sns.boxplot(ax=axes[1], x='Condition', y='Inference time (ms)', hue='Model', data=df_b,
             palette={'SSD MobileNet v1': 'orchid', 'SSD MobileNet v2': 'gold'})
 [bx.axvline(x+.5,color='k', alpha=0.5) for x in ax.get_xticks()]
-axes[1].set_title('(b) MobileNet v2, SSD MobileNet v1, SSD MobileNet v2 tests')
-axes[1].set_yscale('log') # Set y-axis to logarithmic scale
+axes[1].set_title('(b) SSD MobileNet v1, SSD MobileNet v2 tests')
+axes[1].set_yticks(range(5)) # Set y-axis to logarithmic scale as in the image
 axes[1].set_ylabel('Inference time (ms)')
 axes[1].set_xlabel('') # Remove x-label, as it will be rotated
 axes[1].tick_params(axis='x', rotation=45)
-axes[1].grid(axis='y', linestyle='--', alpha=0.5)
+axes[1].grid(axis='y', linestyle='--', alpha=0.7)
 axes[1].legend(title='Model')
+axes[1].set(ylim=(0, 180))
+axes[1].set_yticks([0, 50, 100, 150])
 
 
 plt.tight_layout()
