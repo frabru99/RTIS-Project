@@ -254,6 +254,7 @@ for i, condition in enumerate(stress_conditions):
         labels_b.append(condition)
         models_b.append("SSD MobileNet v2")
 
+
 df_b = pd.DataFrame({
     'Inference time (ms)': data_b,
     'Condition': labels_b,

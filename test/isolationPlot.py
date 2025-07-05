@@ -28,7 +28,7 @@ for file in os.listdir("isolation_run/"):
             for line in f:
                 data_a.append(float(line.strip()) * 1000)
                 labels_a.append("Golden Run Isolation on CPU 1")
-                models_a.append("SSD-MobileNet-V1 - Golden Run Isolation on CPU 1")
+                models_a.append("SSD-MobileNet-V1 - Golden Run with Isolation on CPU 1")
 
 
 # Golden with JetsonClock
