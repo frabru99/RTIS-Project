@@ -254,6 +254,7 @@ for i, condition in enumerate(stress_conditions):
         labels_b.append(condition)
         models_b.append("SSD MobileNet v2")
 
+
 df_b = pd.DataFrame({
     'Inference time (ms)': data_b,
     'Condition': labels_b,
@@ -261,7 +262,7 @@ df_b = pd.DataFrame({
 })
 
 # --- Plotting ---
-fig, axes = plt.subplots(2, 1, figsize=(15, 12), sharex=True) # Two subplots, sharing x-axis
+fig, axes = plt.subplots(2, 1, figsize=(15, 12)) # Two subplots, sharing x-axis
 
 # Plot (a)
 ax = sns.boxplot(ax=axes[0], x='Condition', y='Inference time (ms)', hue='Model', data=df_a,
@@ -290,6 +291,6 @@ axes[1].legend(title='Model')
 axes[1].set(ylim=(0, 180))
 axes[1].set_yticks([0, 50, 100, 150])
 
-
+plt.subplots_adjust(hspace=40)
 plt.tight_layout()
 plt.show()
