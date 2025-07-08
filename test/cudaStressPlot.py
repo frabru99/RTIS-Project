@@ -25,8 +25,6 @@ for file in os.listdir("golden_run/"):
             for y in opened.readlines():
                 ssd_mobilenet_v1_no_stress.append(float(y.strip())*1000)
 
-
-
 #CPU RUN
 for file in os.listdir("GPU_run/"):
     path_file = "GPU_run/"+file
@@ -83,7 +81,7 @@ data_a = []
 labels_a = []
 models_a = []
 
-stress_conditions = ["no stress", "gpu800", "gpu1600", "gpu2400"]
+stress_conditions = ["no stress", "gpu800", "gpu1600", "gpu2400", "gpu3200"]
 
 
 # Inception v4

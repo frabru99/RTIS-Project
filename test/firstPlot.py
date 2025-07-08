@@ -3,10 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import os
-# --- IMPORTANT: REPLACE WITH YOUR ACTUAL DATA ---
-# Each list below should contain the inference times (in ms) for
-# the corresponding model and stress condition.
-# The number of data points in each list can vary.
+
 
 # Example Data Structure (You will replace these with your actual data)
 # For plot (a)
